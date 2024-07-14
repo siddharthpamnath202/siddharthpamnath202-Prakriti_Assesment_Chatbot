@@ -1,0 +1,48 @@
+{% extends 'base_admin.html' %}
+{% block title %}
+    Contact Us
+{% endblock title %}
+{% block adminu %}
+    {{name}}
+{% endblock adminu %}
+{% block admin1 %}
+    {{name}}
+{% endblock admin1 %}
+{% block admin2 %}
+    {{name}}
+{% endblock admin2 %}
+{% block adminmail %}
+    {{mail}}
+{% endblock adminmail %}
+{% block content %}				
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header ">
+				<h4 class="card-title">Add Questions</h4>
+				<p class="card-category" style="background-color: green;color:white">{{msg}}</p>
+			</div>
+			<div class="card-body">
+				<form action="/addquestion" method="POST" style="font-size: large;">
+					<label>Question</label>
+					<input type="text" name="question" placeholder="Enter question" style="width: 70%;"><br><br>
+					<label>Answer</label>
+					<select name="answer">
+						<option value="Yes">Yes</option>
+						<option value="No">No</option>
+					</select><br><br>
+					<label>Weightage</label>
+					<input type="number" name="weightage"><br><br>
+					<label>Dosha Type</label>
+					<select name="dosha_type">
+						<option value="Vata">Vata</option>
+						<option value="Pitta">Pitta</option>
+						<option value="Kapha">Kapha</option>
+						
+						
+					</select><br><br>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+	</div>				
+{% endblock content %}		

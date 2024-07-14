@@ -1,0 +1,68 @@
+{% extends 'base_admin.html' %}
+{% block title %}
+    Questions Panel
+{% endblock title %}
+{% block adminu %}
+    {{name}}
+{% endblock adminu %}
+{% block admin1 %}
+    {{name}}
+{% endblock admin1 %}
+{% block admin2 %}
+    {{name}}
+{% endblock admin2 %}
+{% block adminmail %}
+    {{mail}}
+{% endblock adminmail %}
+{% block content %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header ">
+                <h4 class="page-title">Questinoaries Panel </h4>
+		        <a href="/addquestion"><button class="btn btn-outline-success btn-sm mx-1">Add Question</button></a>
+            </div>
+            <div class="card-body">
+                <table class="table table-head-bg-success table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">SrNo</th>
+                            <th scope="col">Question</th>
+                            <th scope="col">Answer</th>
+                            <th scope="col">Weightage</th>
+                            <th scope="col">Dosha Type</th>  
+                            <th scope="col" colspan="2">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if data|length == 0 %}
+        
+                            No questions saved
+
+                        {% else %}
+                                                                                        
+                            {% for d in data %}
+                                <tr>
+                                    <th scope="row">{{loop.index}}</th>
+                                    <td>{{d.question}}</td>
+                                    <td>{{d.answer}}</td>
+                                    <td>{{d.weightage}}</td>
+                                    <td>{{d.dosha_type}}</td>
+                                    <td>                            
+                                        <!-- <a href="/updatequestion/{{d.question_id}}"><button type="button" class="btn btn-outline-success btn-sm mx-1">Update</button></a>
+                                        <a href="/deletequestion/{{d.question_id}}"><button type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</button></a> -->
+
+                                        <a href="/updatequestion/{{d.question_id}}"><img src="/static/images/update.png" style="height: 20px;width: 20px;"></a>
+                                        <a href="/deletequestion/{{d.question_id}}"><img src="/static/images/delete.png" style="height: 20px;width: 20px;"></a>
+
+                                    </td>
+                                </tr> 
+                            {% endfor %}  
+                        {% endif %}                                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>    
+{% endblock content %}
+                    
+               

@@ -1,0 +1,70 @@
+{% extends 'base_admin.html' %}
+{% block title %}
+    Contact Us
+{% endblock title %}
+{% block adminu %}
+    {{name}}
+{% endblock adminu %}
+{% block admin1 %}
+    {{name}}
+{% endblock admin1 %}
+{% block admin2 %}
+    {{name}}
+{% endblock admin2 %}
+{% block adminmail %}
+    {{mail}}
+{% endblock adminmail %}
+{% block content %}
+	<h4 class="page-title">Contact US Pannel</h4>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header ">
+					<h4 class="card-title">All Contact Us Details</h4>
+					<p class="card-category">Contact US Table</p>
+				</div>
+				<div class="card-body">
+					<table class="table table-head-bg-success table-striped table-hover">
+						<thead>
+							<tr>
+								<th scope="col">SrNo</th>
+								<th scope="col">Full Name</th>
+								<th scope="col">Email ID</th>                                                    
+								<th scope="col">Subject</th>			
+								<th scope="col">Comments</th>										
+								<th scope="col">Date and Time</th>																				
+							</tr>
+						</thead>
+						<tbody>
+							{% if data|length == 0 %}
+			
+								No any comments
+
+							{% else %}
+																							
+								{% for d in data %}
+									<tr>
+										<th scope="row">{{loop.index}}</th>
+										<td>{{d.name}}</td>
+										<td>{{d.email}}</td>
+										<td>{{d.subject}}</td>
+										<td>{{d.comments}}</td>
+										<td>{{d.date_status}}</td>										
+									</tr> 
+								{% endfor %}  
+							{% endif %}                                       
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+            
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+{% extends 'base_admin.html' %}
+{% block title %}
+    Contact Us
+{% endblock title %}
+{% block adminu %}
+    {{name}}
+{% endblock adminu %}
+{% block admin1 %}
+    {{name}}
+{% endblock admin1 %}
+{% block admin2 %}
+    {{name}}
+{% endblock admin2 %}
+{% block adminmail %}
+    {{mail}}
+{% endblock adminmail %}
+{% block content %}				
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header ">
+				<h4 class="card-title">Add Doctor</h4>
+				<!-- <p class="card-category">{{msg}}</p> -->
+                <div style="background-color: green;color: white;">{{msg}}</div>
+			</div>
+			<div class="card-body">
+				<form action="/add_doctor" method="POST" style="font-size: large;">
+					<label>Name</label>
+					<input type="text" name="name" placeholder="Enter full name" style="width: 70%;"><br><br>
+					<label>Email</label>
+					<input type="email" name="email" placeholder="example@gmail.com" style="width: 70%;"><br><br>
+					<label>Mobile No</label>
+					<input type="text" name="mobile"><br><br>
+					<label>Specialist</label>
+					<input type="text" name="specialist" placeholder="Enter speciality" style="width: 70%;"><br><br>
+                    <label>City</label>
+					<input type="text" name="city" placeholder="Enter your city" style="width: 70%;"><br><br>
+                    <label>Address</label>
+					<textarea class="form-control" name="address" rows="3" placeholder="Enter address" required></textarea><br><br>
+                    <label>Google Maps Location</label>
+					<input type="text" name="location" placeholder="Enter you location" style="width: 70%;"><br><br>
+					<input type="submit" value="Submit">
+				</form>
+			</div>
+		</div>
+	</div>				
+{% endblock content %}		

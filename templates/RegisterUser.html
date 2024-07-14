@@ -1,0 +1,66 @@
+{% extends 'base_admin.html' %}
+{% block title %}
+    Registered Users
+{% endblock title %}
+{% block adminu %}
+    {{name}}
+{% endblock adminu %}
+{% block admin1 %}
+    {{name}}
+{% endblock admin1 %}
+{% block admin2 %}
+    {{name}}
+{% endblock admin2 %}
+{% block adminmail %}
+    {{mail}}
+{% endblock adminmail %}
+{% block content %}
+	<h4 class="page-title">User List Pannel</h4>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header ">
+					<h4 class="card-title">All Registered Users</h4>
+					<p class="card-category">Users Table</p>
+				</div>
+				<div class="card-body">
+					<table class="table table-head-bg-success table-striped table-hover">
+						<thead>
+							<tr>
+								<th scope="col">SrNo</th>
+								<th scope="col">Full Name</th>
+								<th scope="col">Email ID</th>                                                    
+								<th scope="col">City</th>													
+								<th scope="col">Date and Time</th>
+								<th scope="col">Action</th>													
+							</tr>
+						</thead>
+						<tbody>
+							{% if data|length == 0 %}
+			
+								No users Registered
+
+							{% else %}
+																							
+								{% for d in data %}
+									<tr>
+										<th scope="row">{{loop.index}}</th>
+										<td>{{d.user_name}}</td>
+										<td>{{d.email}}</td>
+										<td>{{d.city}}</td>
+										<td>{{d.date_status}}</td>
+										<td>                            
+											<a href="/userdetails/{{d.user_id}}"><button type="button" class="btn btn-outline-success btn-sm mx-1">Show Details</button></a>																
+										</td>
+									</tr> 
+								{% endfor %}  
+							{% endif %}                                       
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+
+	

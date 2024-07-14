@@ -1,0 +1,73 @@
+{% extends 'base_admin.html' %}
+{% block title %}
+    User Details
+{% endblock title %}
+{% block adminu %}
+    {{name}}
+{% endblock adminu %}
+{% block admin1 %}
+    {{name}}
+{% endblock admin1 %}
+{% block admin2 %}
+    {{name}}
+{% endblock admin2 %}
+{% block adminmail %}
+    {{mail}}
+{% endblock adminmail %}
+{% block content %}
+    <!-- <h4 class="page-title">Registered  List</h4> -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header ">
+                    <h4 class="card-title">{{data.user_name}}</h4>
+                    <!-- <p class="card-category">Users Table</p> -->
+                    <a href="/userdelete/{{data.user_id}}"><img src="/static/images/newdel.jpg" style="height: 25px;width: 25px;border-radius: 50%;float: right;"></a>
+                </div>
+                <div class="card-body" style="overflow: auto;">   
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Name </td>
+                                <td>: {{data.user_name}}</td>
+                            </tr>
+                            <tr>
+                                <td>Email </td>
+                                <td>: {{data.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Password </td>
+                                <td>: {{data.password}}</td>
+                            </tr>
+                            <tr>
+                                <td>Kapha Percentage </td>
+                                <td>: {{data.kapha_per}}</td>
+                            </tr>
+                            <tr>
+                                <td>Vata Percentage </td>
+                                <td>: {{data.vata_per}}</td>
+                            </tr>
+                            <tr>
+                                <td>Pitta Percentage </td>
+                                <td>: {{data.pitta_per}}</td>
+                            </tr>
+                            <tr>
+                                <td>City </td>
+                                <td>: {{data.city}}</td>
+                            </tr>
+                            <tr>
+                                <td>Dosha</td>
+                                <td>: {{data.dosha}}</td>
+                            </tr>
+                            <tr>
+                                <td>Date Status</td>
+                                <td>: {{data.date_status}}</td>
+                            </tr>
+                        </tbody>
+                    </table>                                                                              
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}                
+

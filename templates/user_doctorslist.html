@@ -1,0 +1,68 @@
+{% extends 'base_user.html' %}
+{% block usertitle %}
+    Dashboard
+{% endblock usertitle %}
+{% block username1 %}
+    {{name}}
+{% endblock username1 %}
+{% block username2 %}
+	{{name}}
+{% endblock username2 %}
+{% block useremail %}
+	{{email}}
+{% endblock useremail %}
+{% block username3 %}
+	{{name}}
+{% endblock username3 %}
+{% block usercontent %}
+<h4 class="page-title"> Doctors Nearby</h4>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header ">
+                <h4 class="card-title">Doctors Nearby</h4>
+                <p class="card-category">City : Solapur</p>
+            </div>
+            <div class="card-body">
+                <table class="table table-head-bg-success table-striped table-hover">
+                    <thead>
+                        <tr>			
+                            <th scope="col">SrNo</th>					
+                            <th scope="col">Name</th>
+                            <th scope="col">Email ID</th>
+                            <th scope="col">Mobile No</th>
+                            <th scope="col">Specialist</th>
+                            <th scope="col">City</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Location</th>                            							
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if data|length == 0 %}
+        
+                            No doctors added
+
+                        {% else %}
+                                                                                        
+                            {% for d in data %}
+                                <tr>
+                                    <th scope="row">{{loop.index}}</th>
+                                    <td>{{d.name}}</td>
+                                    <td>{{d.email}}</td>
+                                    <td>{{d.mobile_no}}</td>
+                                    <td>{{d.specialist}}</td>
+                                    <td>{{d.city}}</td>
+                                    <td>{{d.address}}</td>										
+                                    <td>                            
+                                        <a href="/usermap/{{d.doctor_id}}"><button type="button" class="btn btn-outline-success btn-sm mx-1">View in Map</button></a>											
+                                    </td>                                   
+                                </tr> 
+                            {% endfor %}  
+                        {% endif %}                                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock usercontent %}

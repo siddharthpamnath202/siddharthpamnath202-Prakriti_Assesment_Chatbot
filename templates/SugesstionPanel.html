@@ -1,0 +1,103 @@
+{% extends 'base_admin.html' %}
+{% block title %}
+    Suggestions
+{% endblock title %}
+{% block adminu %}
+    {{name}}
+{% endblock adminu %}
+{% block admin1 %}
+    {{name}}
+{% endblock admin1 %}
+{% block admin2 %}
+    {{name}}
+{% endblock admin2 %}
+{% block adminmail %}
+    {{mail}}
+{% endblock adminmail %}
+{% block content %}
+<div class="col-md-12">
+    <a href="/viewsugesstionPanel"><button class="btn btn-outline-success btn-sm mx-1">Kapha Suggestions</button></a>
+    <a href="/viewpittasugesstionPanel"><button class="btn btn-outline-success btn-sm mx-1">Pitta Suggestions</button></a>
+    <a href="/viewvatasugesstionPanel"><button class="btn btn-outline-success btn-sm mx-1">Vata Suggestions</button></a>
+    <a href="/SugesstionPanel"><button class="btn btn-outline-success btn-sm mx-1">Add Suggestions</button></a> <br>  <br>  
+	<!-- Diet -->
+    <div class="card">
+        <div class="card-header ">
+            <h4 class="card-title">Suggestions</h4>
+            <p class="card-category">{{d}}</p>
+        </div>
+        <div class="card-body">
+            <form action="/dietsuggestion" method="POST" style="font-size: large;">
+                <label>Dosha Type</label>
+				<select name="dosha_type">
+					<option value="Kapha">Kapha</option>
+					<option value="Pitta">Pitta</option>
+					<option value="Vata">Vata</option>
+				</select><br><br>
+
+                <label>Diet</label>
+                <textarea class="form-control" name="diet" rows="5" placeholder="Diet" required></textarea>
+                <br>                
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+	<!-- Lifestyle -->
+	<div class="card">
+        <div class="card-header ">
+            <h4 class="card-title">Lifestyle</h4>
+            <p class="card-category">{{l}}</p>
+        </div>
+        <div class="card-body">
+            <form action="/lifestylesuggestion" method="POST" style="font-size: large;">
+                <label>Dosha Type</label>
+				<select name="dosha_type">
+					<option value="Kapha">Kapha</option>
+					<option value="Pitta">Pitta</option>
+					<option value="Vata">Vata</option>
+				</select><br><br>
+
+                <label>Lifestyle Heading</label>
+                <input type="text" name="lifestyle_heading" placeholder="Enter heading">
+                <br> <br>
+				
+				<label>Lifestyle Description</label>
+                <textarea class="form-control" name="lifestyle_description" rows="2" placeholder="Enter description" required></textarea>
+                <br> 
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <!-- Yoga -->
+	<div class="card">
+        <div class="card-header ">
+            <h4 class="card-title">Yoga</h4>
+            <p class="card-category">{{y}}</p>
+        </div>
+        <div class="card-body">
+            <form action="/yogasuggestion" method="POST" style="font-size: large;">
+                <label>Dosha Type</label>
+				<select name="dosha_type">
+					<option value="Kapha">Kapha</option>
+					<option value="Pitta">Pitta</option>
+					<option value="Vata">Vata</option>
+				</select><br><br>
+
+                <label>Yoga Heading</label>
+                <input type="text" name="yoga_heading" placeholder="Enter heading">
+                <br> <br>
+				
+				<label>Yoga Description</label>
+                <textarea class="form-control" name="yoga_description" rows="2" placeholder="Enter description" required></textarea>
+                <br> 
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>	
+{% endblock content %}
+
+
+

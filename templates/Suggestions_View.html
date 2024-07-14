@@ -1,0 +1,88 @@
+{% extends 'base_admin.html' %}
+{% block title %}
+    Suggestions
+{% endblock title %}
+{% block adminu %}
+    {{name}}
+{% endblock adminu %}
+{% block admin1 %}
+    {{name}}
+{% endblock admin1 %}
+{% block admin2 %}
+    {{name}}
+{% endblock admin2 %}
+{% block adminmail %}
+    {{mail}}
+{% endblock adminmail %}
+{% block content %}
+<div class="col-md-12">
+    <a href="/viewsugesstionPanel"><button class="btn btn-outline-success btn-sm mx-1">Kapha Suggestions</button></a>
+    <a href="/viewpittasugesstionPanel"><button class="btn btn-outline-success btn-sm mx-1">Pitta Suggestions</button></a>
+    <a href="/viewvatasugesstionPanel"><button class="btn btn-outline-success btn-sm mx-1">Vata Suggestions</button></a>
+    <a href="/SugesstionPanel"><button class="btn btn-outline-success btn-sm mx-1">Add Suggestions</button></a> <br>  <br>  
+	<!-- Diet -->
+    <div class="card">
+        <div class="card-header ">
+            <h4 class="card-title">Diet Suggestions</h4>
+            <p class="card-category">{{typ}}</p>
+        </div>
+        <div class="card-body">            
+            {% if diet_data|length == 0 %}
+                No suggestions have been added yet
+            {% else %}
+                {% for d in diet_data %}
+                    <ul>                        
+                        <li>{{d.diet}} <a href="/update_diet/{{d.id}}"><img src="/static/images/update.png" style="height: 20px;width: 20px;"></a> <a href="/deletediet/{{d.dosha_type}}/{{d.id}}"><img src="/static/images/newdel.jpg" style="height: 20px;width: 20px;"></a></li>                         
+                    </ul>                    
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+	<!-- Lifestyle -->
+	<div class="card">
+        <div class="card-header ">
+            <h4 class="card-title">Lifestyle Suggestions</h4>
+            <p class="card-category">{{typ}}</p>
+        </div>
+        <div class="card-body">
+            {% if lifestyle_data|length == 0 %}
+                No suggestions have been added yet
+            {% else %}                
+                <ol>
+                    {% for l in lifestyle_data %}
+                        <li><b>{{l.lifestyle_heading}}:</b></li> 
+                        <p>{{l.lifestyle_description}}</p>
+                        <a href="/update_lifestyle/{{l.id}}"><img src="/static/images/update.png" style="height: 20px;width: 20px;"></a>
+                        <a href="/deletelifestyle/{{l.dosha_type}}/{{l.id}}"><img src="/static/images/delete.png" style="height: 20px;width: 20px;"></a>
+                        <br><br>
+                    {% endfor %} 
+                </ol>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Yoga -->
+	<div class="card">
+        <div class="card-header ">
+            <h4 class="card-title">Yoga Suggestions</h4>
+            <p class="card-category">{{typ}}</p>
+        </div>
+        <div class="card-body">
+            {% if yoga_data|length == 0 %}
+                No suggestions have been added yet
+            {% else %}                
+                <ol>
+                    {% for y in yoga_data%}
+                        <li><b>{{y.yoga_heading}}:</b></li> 
+                        <p>{{y.yoga_description}}</p>
+                        <a href="/update_yoga/{{y.id}}"><img src="/static/images/update.png" style="height: 20px;width: 20px;"></a>
+                        <a href="/deleteyoga/{{y.dosha_type}}/{{y.id}}"><img src="/static/images/delete.png" style="height: 20px;width: 20px;"></a>
+                        <br><br>
+                    {% endfor %} 
+                </ol>
+            {% endif %}
+        </div>
+    </div>
+</div>	
+{% endblock content %}

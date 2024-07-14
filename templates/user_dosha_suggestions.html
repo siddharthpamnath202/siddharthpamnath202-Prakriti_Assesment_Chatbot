@@ -1,0 +1,83 @@
+{% extends 'base_user.html' %}
+{% block usertitle %}
+    Dashboard
+{% endblock usertitle %}
+{% block username1 %}
+    {{name}}
+{% endblock username1 %}
+{% block username2 %}
+	{{name}}
+{% endblock username2 %}
+{% block useremail %}
+	{{email}}
+{% endblock useremail %}
+{% block username3 %}
+	{{name}}
+{% endblock username3 %}
+{% block usercontent %}
+<div class="col-md-12">   
+    <div class="card">        
+        <div class="card-body">
+            {{msg}}
+        </div>
+    </div> 
+	<!-- Diet -->
+    <div class="card">
+        <div class="card-header " style="background-color: greenyellow;">
+            <h4 class="card-title">Diet Suggestions</h4>
+            <!-- <p class="card-category">{{typ}}</p> -->
+        </div>
+        <div class="card-body">            
+            {% if diet_data|length == 0 %}
+                No suggestions have been added yet
+            {% else %}
+                {% for d in diet_data %}
+                    <ul>                        
+                        <li>{{d.diet}}</li>                         
+                    </ul>                    
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+	<!-- Lifestyle -->
+	<div class="card">
+        <div class="card-header " style="background-color: greenyellow;">
+            <h4 class="card-title">Lifestyle Suggestions</h4>
+            <!-- <p class="card-category">{{typ}}</p> -->
+        </div>
+        <div class="card-body">
+            {% if lifestyle_data|length == 0 %}
+                No suggestions have been added yet
+            {% else %}                
+                <ol>
+                    {% for l in lifestyle_data %}
+                        <li><b>{{l.lifestyle_heading}}:</b></li> 
+                        <p>{{l.lifestyle_description}}</p>                        
+                    {% endfor %} 
+                </ol>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Yoga -->
+	<div class="card">
+        <div class="card-header " style="background-color: greenyellow;">
+            <h4 class="card-title">Yoga Suggestions</h4>
+            <!-- <p class="card-category">{{typ}}</p> -->
+        </div>
+        <div class="card-body">
+            {% if yoga_data|length == 0 %}
+                No suggestions have been added yet
+            {% else %}                
+                <ol>
+                    {% for y in yoga_data%}
+                        <li><b>{{y.yoga_heading}}:</b></li> 
+                        <p>{{y.yoga_description}}</p>                        
+                    {% endfor %} 
+                </ol>
+            {% endif %}
+        </div>
+    </div>
+</div>			
+{% endblock usercontent %}

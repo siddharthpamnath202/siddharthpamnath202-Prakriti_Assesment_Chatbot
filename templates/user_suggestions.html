@@ -1,0 +1,25 @@
+{% extends 'base_user.html' %}
+{% block usertitle %}
+    Dashboard
+{% endblock usertitle %}
+{% block username1 %}
+    {{name}}
+{% endblock username1 %}
+{% block username2 %}
+	{{name}}
+{% endblock username2 %}
+{% block useremail %}
+	{{email}}
+{% endblock useremail %}
+{% block username3 %}
+	{{name}}
+{% endblock username3 %}
+{% block usercontent %}
+<div class="col-md-12">    
+    <div class="card">        
+        <div class="card-body">            
+            {{msg}}
+        </div>
+    </div>	
+</div>			
+{% endblock usercontent %}
